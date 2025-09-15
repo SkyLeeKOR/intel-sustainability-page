@@ -1,0 +1,156 @@
+/* --- General Body & Font Styles --- */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+}
+
+/* --- Hero Section Styles --- */
+.hero {
+    background-color: #0071c5; /* Fallback for older browsers */
+    background: linear-gradient(to bottom right, #0071c5, #005a9e); /* Blue gradient */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* --- Timeline Container Styles --- */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 50vh;
+}
+
+.timeline-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 30px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timeline-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Milestone Card Styles --- */
+.milestone-card {
+    flex: 0 0 320px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    scroll-snap-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+}
+
+.milestone-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Hover Effect Styles --- */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+    height: 120px;
+    transition: all 0.5s ease;
+}
+
+.card-content h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #0071c5;
+    transition: color 0.5s ease;
+}
+
+.extra-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* --- The Hover State Transformation --- */
+.milestone-card:hover {
+    transform: translateY(-12px); /* Card lifts up */
+    box-shadow: 0 10px 25px rgba(0, 45, 85, 0.2);
+}
+
+.milestone-card:hover .card-content {
+    height: 100%;
+    background-color: rgba(0, 113, 197, 0.9);
+}
+
+.milestone-card:hover .details {
+    display: none;
+}
+
+.milestone-card:hover .card-content h2,
+.milestone-card:hover .card-content p {
+    color: white;
+}
+
+.milestone-card:hover .extra-details {
+    max-height: 200px;
+    opacity: 1;
+}
+
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        min-height: auto;
+    }
+
+    .timeline-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+        padding: 0;
+        scroll-snap-type: none;
+    }
+
+    .milestone-card {
+        width: 100%;
+        max-width: 400px;
+        flex: 1 1 auto;
+    }
+}
