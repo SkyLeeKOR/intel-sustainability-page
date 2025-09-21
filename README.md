@@ -1,1 +1,1 @@
-# intel-sustainablility-page
+# intel-sustainability-page
